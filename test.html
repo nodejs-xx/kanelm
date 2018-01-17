@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*! CSS Used from: Embedded */
+
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #F6F6F6;
+            box-sizing: border-box;
+        }
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: inherit;
+            font-family: "PT Sans", sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container .task-input {
+            padding: 10px;
+            height: 50px;
+            font-size: 16px;
+            border: none;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .container .kanban-board {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .container .kanban-board .category {
+            flex: 1;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .container .kanban-board .category h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .container .kanban-board .category span {
+            font-size: 14px;
+            color: #AAA;
+        }
+
+        .container .kanban-board .category ul {
+            margin: 10px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container .kanban-board .category ul li {
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding: 15px;
+            background: #FFF;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            cursor: move;
+        }
+
+        .container .kanban-board .category.ongoing li {
+            border-left: 5px solid #f39c12;
+        }
+
+        .container .kanban-board .category.todo li {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .container .kanban-board .category.done li {
+            border-left: 5px solid #2ecc71;
+        }
+        /*! CSS Used fontfaces */
+
+        @font-face {
+            font-family: 'PT Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v9/JX7MlXqjSJNjQvI4heMMGvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        @font-face {
+            font-family: 'PT Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v9/vtwNVMP8y9C17vLvIBNZI_Y6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        @font-face {
+            font-family: 'PT Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v9/9kaD4V2pNPMMeUVBHayd7vY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @font-face {
+            font-family: 'PT Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v9/ATKpv8nLYAKUYexo8iqqrg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container"><input type="text" class="task-input" placeholder="What's on your mind right now?" tabindex="0">
+        <div class="kanban-board">
+            <div class="category todo" ondragover="return false">
+                <h2>Todo</h2><span>1 item(s)</span>
+                <ul>
+                    <li class="task-item" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '')">用户中心专家机构后期被管理员处理掉,CMS同步问题跟踪</li>
+                </ul>
+            </div>
+            <div class="category ongoing" ondragover="return false">
+                <h2>OnGoing</h2><span>1 item(s)</span>
+                <ul>
+                    <li class="task-item" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '')">个人关注专家列表,出现空值 https://my.cngold.org/1036080/mobile/subscribeList.htm?jumpType=2</li>
+                </ul>
+            </div>
+            <div class="category done" ondragover="return false">
+                <h2>Done</h2><span>1 item(s)</span>
+                <ul>
+                    <li class="task-item" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '')">P2P m 动态改造升级</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
